@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Task Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .hospital-container {
+            width: 80%;
+            margin: 20px auto;
+            background: #1e1e1e;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+        }
+
+        /* Smaller Navbar with Glass Effect */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px; /* Reduced padding */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px); /* Slightly smaller blur */
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            height: 50px; /* Smaller height */
+        }
+        .logo {
+            font-size: 20px; /* Smaller font size */
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px; /* Reduced gap between links */
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500; /* Slightly lighter font weight */
+            font-size: 14px; /* Smaller font size */
+            padding: 8px 12px; /* Smaller padding */
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: #00adb5;
+            color: #121212;
+        }
+
+        /* Task Section Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+        h1 {
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .add-task-btn {
+            background-color: #00adb5;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .add-task-btn:hover {
+            background-color: #008b8b;
+        }
+        .task-list {
+            margin-top: 20px;
+        }
+        h2 {
+            color: #cccccc;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #2c2c2c;
+            margin: 12px 0;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            color: #ffffff;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+        }
+        .task-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        button {
+            background-color: #393e46;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #575d69;
+        }
+        .task-inputs {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        input, select, textarea {
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            width: 100%;
+            background-color: #333;
+            color: white;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #444;
+            border-radius: 5px;
+            margin-top: 8px;
+        }
+        .progress {
+            height: 12px;
+            background-color: #00adb5;
+            width: 0%;
+            border-radius: 5px;
+            transition: width 0.4s ease-in-out;
+        }
+
+        /* Custom font styles for different categories */
+        .Emergency {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #ff5c5c;
+        }
+        .Routine {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            color: #00adb5;
+        }
+        .Completed {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+            color: #00e676;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar with Glass Effect -->
+    <nav>
+        <div class="logo">Hospital Tracker</div>
+        <ul class="nav-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#">Tasks</a></li>
+            <li><a href="#">Staff</a></li>
+            <li><a href="#">Reports</a></li>
+        </ul>
+    </nav>
+
+    <div class="hospital-container">
+        <header>
+            <h1>Hospital Task Tracker</h1>
+        </header>
+        <main>
+            <div class="task-inputs">
+                <input type="text" id="task-name" placeholder="Task Name">
+                <input type="date" id="task-date">
+                <textarea id="task-desc" placeholder="Task Description" rows="2"></textarea>
+                <select id="task-category">
+                    <option value="Emergency">Emergency</option>
+                    <option value="Routine">Routine</option>
+                    <option value="Completed">Completed</option>
+                </select>
+                <select id="assigned-staff">
+                    <option value="Dr. Smith">Dr. Smith</option>
+                    <option value="Nurse Johnson">Nurse Johnson</option>
+                    <option value="Technician Lee">Technician Lee</option>
+                </select>
+                <button class="add-task-btn" onclick="addTask()">Add Task</button>
+            </div>
+            <div class="task-list">
+                <h2>Ongoing Tasks</h2>
+                <ul id="task-items"></ul>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        function addTask() {
+            const taskList = document.getElementById("task-items");
+            const taskName = document.getElementById("task-name").value;
+            const taskDate = document.getElementById("task-date").value;
+            const taskDesc = document.getElementById("task-desc").value;
+            const taskCategory = document.getElementById("task-category").value;
+            const assignedStaff = document.getElementById("assigned-staff").value;
+            
+            if (taskName.trim() === "") {
+                alert("Task name cannot be empty");
+                return;
+            }
+            
+            const newTask = document.createElement("li");
+            newTask.classList.add(taskCategory);  // Add category-specific class
+            newTask.innerHTML = `<strong>${taskName}</strong> - Due: ${taskDate} <br> 
+                                 Description: ${taskDesc} <br> 
+                                 Category: ${taskCategory} <br> 
+                                 Assigned to: ${assignedStaff}`;
+            
+            const taskControls = document.createElement("div");
+            taskControls.classList.add("task-controls");
+            
+            const progressBarContainer = document.createElement("div");
+            progressBarContainer.classList.add("progress-bar");
+            
+            const progressBar = document.createElement("div");
+            progressBar.classList.add("progress");
+            progressBarContainer.appendChild(progressBar);
+            
+            const removeBtn = document.createElement("button");
+            removeBtn.textContent = "Remove";
+            removeBtn.onclick = function() {
+                taskList.removeChild(newTask);
+            };
+            
+            const completeBtn = document.createElement("button");
+            completeBtn.textContent = "Complete";
+            completeBtn.onclick = function() {
+                progressBar.style.width = "100%";
+            };
+            
+            taskControls.appendChild(completeBtn);
+            taskControls.appendChild(removeBtn);
+            
+            newTask.appendChild(progressBarContainer);
+            newTask.appendChild(taskControls);
+            taskList.appendChild(newTask);
+            
+            document.getElementById("task-name").value = "";
+            document.getElementById("task-date").value = "";
+            document.getElementById("task-desc").value = "";
+            document.getElementById("task-category").value = "Emergency";
+            document.getElementById("assigned-staff").value = "Dr. Smith";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000; /* Black background */
+    color: white; /* White text */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #111;
+}
+
+.navbar .logo {
+    height: 50px;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+/* Hero Section */
+.about-hero {
+    background-color: #222;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.about-hero h1 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.about-hero p {
+    font-size: 22px;
+    color: #bbb; /* Light grey */
+}
+
+/* Company Story */
+.company-story {
+    background-color: #111;
+    padding: 80px 50px;
+    text-align: center;
+}
+
+.company-story h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.company-story p {
+    font-size: 20px;
+    color: #ccc; /* Grey text */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Our Team */
+.our-team {
+    background-color: #222;
+    padding: 80px 50px;
+    text-align: center;
+}
+
+.our-team h2 {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.team-member h3 {
+    margin-top: 15px;
+    font-size: 24px;
+    color: white;
+}
+
+.team-member p {
+    font-size: 18px;
+    color: #bbb;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: #bbb;
+}

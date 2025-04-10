@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Founders - Task Tracker</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00adb5;
+            letter-spacing: 2px;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(to right, #00adb5, #393e46);
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+        }
+        
+        .founders {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        .founders h2 {
+            font-size: 36px;
+            color: #00adb5;
+            margin-bottom: 20px;
+        }
+        
+        .founders-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .founder {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .founder:hover {
+            transform: translateY(-10px);
+        }
+        
+        .founder img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1e1e1e;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Task Tracker</div>
+        <nav>
+            <a href="index.html" style="color: white; text-decoration: none; margin: 0 15px;">Home</a>
+            <a href="about.html" style="color: white; text-decoration: none; margin: 0 15px;">About</a>
+            <a href="services.html" style="color: white; text-decoration: none; margin: 0 15px;">Services</a>
+            <a href="contact.html" style="color: white; text-decoration: none; margin: 0 15px;">Contact</a>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>Meet Our Founders</h1>
+        <p>Discover the visionaries behind Task Tracker who are dedicated to enhancing your experience.</p>
+    </section>
+    
+    <section class="founders">
+        <h2>Our Founders</h2>
+        <div class="founders-grid">
+            <div class="founder">
+                <img src="assets/founder-1.jpg" alt="Sarang">
+                <h3>Sarang</h3>
+                <p>Co-Founder</p>
+            </div>
+            <div class="founder">
+                <img src="assets/founder-2.jpg" alt="Kunal">
+                <h3>Kunal</h3>
+                <p>Co-Founder</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>© 2025 Task Tracker. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const founders = document.querySelectorAll(".founder");
+            founders.forEach(founder => {
+                founder.addEventListener("mouseover", () => {
+                    founder.style.transform = "scale(1.05)";
+                });
+                founder.addEventListener("mouseout", () => {
+                    founder.style.transform = "scale(1)";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

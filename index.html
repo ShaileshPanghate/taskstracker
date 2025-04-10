@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link rel="icon" type="main logo symbol w.png" href="./images/main logo symbol w.png" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Poppins:wght@300;400;600&family=Open+Sans:wght@300;400;600&family=Lora:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Glass Effect Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: #00adb5;
+            color: #121212;
+        }
+
+        /* Hero Section with Fade-In Effect */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 30px;
+            background: #2c2c2c;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-text h1 {
+            font-size: 36px;
+            color: #ffffff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #cccccc;
+            margin-top: 10px;
+        }
+
+        .hero img {
+            max-width: 50%;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Card Section */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .card h2 {
+            font-size: 24px;
+            color: #00adb5;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #ffffff;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .action-btn {
+            background-color: #00adb5;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .action-btn:hover {
+            background-color: #008b8b;
+        }
+
+        /* Footer Section */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #ffffff;
+            border-radius: 12px;
+        }
+
+        /* Security & Integration Section */
+        .security {
+            padding: 50px 30px;
+            background: #2c2c2c;
+            margin-top: 50px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .security h2 {
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+
+        .security-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Analytical Reports Section */
+        .analytical-reports {
+            padding: 50px 30px;
+            background: #2c2c2c;
+            margin-top: 50px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .analytical-reports h2 {
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .reports-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .reports-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .reports-card i {
+            font-size: 36px;
+            color: #00adb5;
+        }
+
+        .reports-card h3 {
+            font-size: 22px;
+            color: #ffffff;
+            margin-top: 10px;
+        }
+
+        .reports-card p {
+            font-size: 16px;
+            color: #cccccc;
+            margin-top: 10px;
+        }
+
+        /* Founders Section */
+        .founders {
+            padding: 50px 30px;
+            background: #2c2c2c;
+            margin-top: 50px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .founders h2 {
+            font-size: 28px;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .founders-grid {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .founder {
+            text-align: center;
+        }
+
+        .founder img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .founder h3 {
+            font-size: 22px;
+            color: #ffffff;
+        }
+
+        .founder p {
+            font-size: 16px;
+            color: #cccccc;
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Slide-in-left Animation */
+        .slide-in-left {
+            animation: slideInLeft 1.5s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="index.html">
+            <div class="logo">
+                <img src="images/main logo symbol w.png" alt="Task Tracker Logo">
+            </div>
+
+        </a>
+        <!-- <div class="menu-btn" onclick="toggleMenu()">☰</div> -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="auth-buttons">
+
+        </div>
+    </header>
+
+
+
+
+    <!-- Hero Section with Fade-In and Slide-In-Left Effects -->
+    <section class="hero fade-in" data-aos="fade-up">
+        <div class="hero-text slide-in-left">
+            <h1>Task Tracker</h1>
+            <p>Manage tasks across multiple sectors like healthcare, education, and real estate. Optimize and streamline
+                your workflow with ease!</p>
+            <a href="./contact.html" class="cta-button">Request Demo →</a>
+        </div>
+        <div class="task-image">
+            <img src="./images/banner.jpg" alt="Business Meeting">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="request-demo" id="services">
+        <h2>Our Key Services</h2>
+        <div class="card-container">
+            <div class="card">
+                <h2>Real Estate</h2>
+                <p>Streamline property management, automate sales, and enhance client relationships.</p>
+                <a href="./contact.html"><button class="action-btn">Know More →</button></a>
+            </div>
+            <div class="card">
+                <h2>Hospitals</h2>
+                <p>Optimize patient management, streamline appointments, and enhance healthcare services.</p>
+                <a href="./contact.html"><button class="action-btn">Know More →</button></a>
+            </div>
+            <div class="card">
+                <h2>Education</h2>
+                <p>Simplify admissions, track progress, and manage academics efficiently.</p>
+                <a href="./contact.html"><button class="action-btn">Know More →</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRM & Security Section -->
+    <section class="crm-security">
+        <h2>CRM Integration & Security</h2>
+        <div class="security-cards">
+            <div class="card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Insights</h3>
+                <p>Analyze sales performance, track revenue, and improve efficiency.</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-users"></i>
+                <h3>Lead Integration</h3>
+                <p>Streamline lead management to boost conversions.</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-lock"></i>
+                <h3>Security</h3>
+                <p>Ensure data protection with advanced encryption.</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-database"></i>
+                <h3>Data Center Security</h3>
+                <p>High availability and resilience for secure data storage.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="plan">
+        <h2>Choose Your Plan</h2>
+        <div class="pricing-container">
+
+            <div class="pricing-card popular">
+                <h3>Start Up</h3>
+                <p>Best for growing teams</p>
+                <h2>5000 ₹ <span>/ month</span></h2>
+                <ul>
+                    <li>✔ CRM</li>
+                    <li>✔ ERP</li>
+                    <li>✔ Access upto 5 Users</li>
+                    <li>✔ Tasks Management</li>
+                    <li>✔ Generating Invoice </li>
+                    <li>✔ Inventory Management</li>
+                </ul>
+                <a href="./contact.html"></a><button class="pricing-btn"> Get Started</button></a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Enterprise</h3>
+                <p>For large organizations</p>
+                <h2>Custom</h2>
+                <ul>
+                    <li>✔ Everything in Pro</li>
+                    <li>✔ Get Quote</li>
+                    <li>✔ Dedicated Support</li>
+                    <li>✔ What's app Integration</li>
+                    <li>✔ Monthly AI-Reports</li>
+                    <li>✔ Advance Analytics</li>
+                </ul>
+                <a href="./contact.html"></a><button class="pricing-btn"> Get Started</button></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytical Reports Section -->
+    <section class="analytical-reports">
+        <h2>Types of Analytical Reports</h2>
+        <div class="reports-cards">
+            <div class="reports-card">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Sales Performance</h3>
+                <p>Track and analyze the effectiveness of your sales strategies and outcomes.</p>
+            </div>
+            <div class="reports-card">
+                <i class="fas fa-exchange-alt"></i>
+                <h3>Lead Conversion</h3>
+                <p>Monitor and optimize the conversion of leads into paying customers.</p>
+            </div>
+            <div class="reports-card">
+                <i class="fas fa-users"></i>
+                <h3>Customer Retention</h3>
+                <p>Measure customer satisfaction and retention to improve long-term relationships.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>TaskTracker</h2>
+                <p>Effortless task management for professionals and teams.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#plan">Plans & Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                  <a href="https://www.instagram.com/taskstracker.in?igsh=MTlmNnM0ZTcwejhwNw=="
+                   target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/taskstracker/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Task Tracker | All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-menu');
+            menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+        }
+    </script>
+
+    </script>
+
+</body>
+
+</html>
