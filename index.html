@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Task Tracker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <!-- Google Fonts -->
@@ -102,7 +103,14 @@
             gap: 30px;
             margin-top: 50px;
         }
-
+        @media (max-width: 768px) {
+            .card-container {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        }
         .card {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
@@ -177,6 +185,13 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
         }
+        @media (max-width: 768px) {
+            .security-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        }
 
         .card {
             background: rgba(255, 255, 255, 0.1);
@@ -207,7 +222,13 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
-
+        @media (max-width: 768px) {
+            .reports-cards {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 30px;
+        }
+        }
         .reports-card {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
@@ -337,38 +358,44 @@
 
 
     <!-- Hero Section with Fade-In and Slide-In-Left Effects -->
-    <section class="hero fade-in" data-aos="fade-up">
-        <div class="hero-text slide-in-left">
-            <h1>Task Tracker</h1>
-            <p>Manage tasks across multiple sectors like healthcare, education, and real estate. Optimize and streamline
-                your workflow with ease!</p>
-            <a href="./contact.html" class="cta-button">Request Demo →</a>
+    <section class="hero fade-in" data-aos="fade-up" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; padding: 30px 20px; gap: 30px;">
+        <div class="hero-text slide-in-left" style="flex: 1 1 300px; max-width: 450px; text-align: center;">
+          <h1 style="font-size: 2.5em; margin-bottom: 20px;">Task Tracker</h1>
+          <p style="font-size: 1.1em; margin-bottom: 25px;">
+            Manage tasks across multiple sectors like healthcare, education, and real estate. Optimize and streamline your workflow with ease!
+          </p>
+          <a href="./contact.html" style="display: inline-block; padding: 12px 24px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+            Request Demo →
+          </a>
         </div>
-        <div class="task-image">
-            <img src="./images/banner.jpg" alt="Business Meeting">
+      
+        <div class="task-image" style="flex: 1 1 300px; max-width: 500px; text-align: center;">
+          <img src="./images/banner.jpg" alt="Business Meeting" style="max-width: 100%; height: auto; border-radius: 8px;" />
         </div>
-    </section>
+      </section>
+      
 
     <!-- Services Section -->
     <section class="request-demo" id="services">
         <h2>Our Key Services</h2>
         <div class="card-container">
             <div class="card">
-                <h2>Real Estate</h2>
-                <p>Streamline property management, automate sales, and enhance client relationships.</p>
-                <a href="./contact.html"><button class="action-btn">Know More →</button></a>
+              <h2>Real Estate</h2>
+              <p>Streamline property management, automate sales, and enhance client relationships.</p>
+              <a href="./contact.html"><button class="action-btn">Know More →</button></a>
             </div>
             <div class="card">
-                <h2>Hospitals</h2>
-                <p>Optimize patient management, streamline appointments, and enhance healthcare services.</p>
-                <a href="./contact.html"><button class="action-btn">Know More →</button></a>
+              <h2>Hospitals</h2>
+              <p>Optimize patient management, streamline appointments, and enhance healthcare services.</p>
+              <a href="./contact.html"><button class="action-btn">Know More →</button></a>
             </div>
             <div class="card">
-                <h2>Education</h2>
-                <p>Simplify admissions, track progress, and manage academics efficiently.</p>
-                <a href="./contact.html"><button class="action-btn">Know More →</button></a>
+              <h2>Education</h2>
+              <p>Simplify admissions, track progress, and manage academics efficiently.</p>
+              <a href="./contact.html"><button class="action-btn">Know More →</button></a>
             </div>
-        </div>
+          </div>
+          
     </section>
 
     <!-- CRM & Security Section -->
